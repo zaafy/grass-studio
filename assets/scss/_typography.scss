@@ -1,0 +1,28 @@
+// typography
+
+h1 {
+  font-size: 60px;
+  line-height: 1.066;
+  color: $white;
+  font-weight: $font-weight-extrabold;
+}
+
+h2 {
+  color: $header-color;
+  font-size: 70px;
+  line-height: 1.2428;
+  font-weight: $font-weight-bold;
+  margin-bottom: 36px;
+}
+
+h5 {
+  font-size: 21px;
+  line-height: 1.5238;
+  color: $white;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.11;
+  margin-bottom: 18px;
+}
