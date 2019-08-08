@@ -1,4 +1,15 @@
 // base styles
+* {
+  margin: 0;
+  padding: 0;
+
+  &::before,
+  &::after {
+    margin: 0;
+    padding: 0;
+  }
+}
+
 body {
   font-size: 18px;
   box-sizing: border-box;
