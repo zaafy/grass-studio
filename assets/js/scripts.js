@@ -18,7 +18,7 @@ class Lightbox {
   }
 
   changeLightboxImgSrc(imageHolder) {
-    this.lightboxImage.src = imageHolder.querySelector('img').src;
+    this.lightboxImage.src = imageHolder.dataset.src;
     this.showLightbox();
   }
 
