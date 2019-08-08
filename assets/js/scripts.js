@@ -1,39 +1,45 @@
-function lightbox() {
-  let lightbox = document.querySelector('.lightbox'),
-    lightboxWrapper = lightbox.querySelector('.lightbox__image-wrapper'),
-    lightboxImage = lightboxWrapper.querySelector('.lightbox__image'),
-    overlay = document.querySelector('.lightbox__overlay'),
-    allImages = document.querySelectorAll('.triggerLightbox');
+class Lightbox {
+  constructor() {
+    this.lightbox = document.querySelector('.lightbox'),
+    this.lightboxWrapper = document.querySelector('.lightbox__image-wrapper'),
+    this.lightboxImage = document.querySelector('.lightbox__image'),
+    this.overlay = document.querySelector('.lightbox__overlay'),
+    this.closeButton = document.querySelector('.lightbox__close'),
+    this.allImages = document.querySelectorAll('.triggerLightbox');
 
-  for (let i = 0; i < allImages.length; i++) {
-    allImages[i].onclick = function () {
-      lightboxImage.src = this.querySelector('img').src;
-      lightbox.classList.add('visible');
+    this.overlay.addEventListener('click', evt => this.hideLightbox());
+    this.closeButton.addEventListener('click', evt => this.hideLightbox());
+  }
+
+  addListenerToImages() {
+    for (let i = 0; i < this.allImages.length; i++) {
+      this.allImages[i].addEventListener('click', () => this.changeLightboxImgSrc(this.allImages[i]));
     }
-  };
+  }
 
-  overlay.onclick = () => {
-    lightbox.classList.remove('visible');
-  };
+  changeLightboxImgSrc(imageHolder) {
+    this.lightboxImage.src = imageHolder.querySelector('img').src;
+    this.showLightbox();
+  }
 
-  document.onkeydown = evt => {
-    evt = evt || window.event;
-    if (evt.keyCode == 27) {
-      lightbox.classList.remove('visible');
-    }
-  };
+  showLightbox() {
+    this.lightbox.classList.add('visible');
+  }
+
+  hideLightbox() {
+    this.lightbox.classList.remove('visible');
+  }
+
+  addEscKeyListener() {
+    document.addEventListener('keydown', evt => {
+      if (evt.keyCode === 27) {
+        this.hideLightbox();
+      }
+    });
+  }
 }
 
-lightbox();
+let lightbox = new Lightbox();
 
-// class Lightbox {
-//   constructor(image) { // konstruktor
-//     this.image = image;
-//     this.image.onclick = function () {
-//       lightboxImage.src = this.querySelector('img').src;
-//       lightbox.classList.add('visible');
-//     }
-//   }
-// }
-
-// let lightboxes = new Lightbox(this);
+lightbox.addListenerToImages();
+lightbox.addEscKeyListener();
