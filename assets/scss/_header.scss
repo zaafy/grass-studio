@@ -1,1 +1,51 @@
 //header
+
+.header {
+  background-image: url("../images/seacost.jpg");
+  background-size: auto;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  height: 103vh;
+
+
+
+  &__upper {
+    margin-bottom: 164px;
+    padding: 62px 102px 0 113px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    font-size: 60px;
+    line-height: 75px;
+    color: $black;
+    letter-spacing: 2px;
+    margin-bottom: 0;
+  }
+
+  &__navigation {
+    display: inline-block;
+  }
+
+
+
+
+
+
+  &__hero {
+
+  }
+
+  &__heading {
+
+  }
+
+  &__subheading {
+
+  }
+
+  &__cta {
+
+  }
+}

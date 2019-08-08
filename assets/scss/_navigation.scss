@@ -1,1 +1,37 @@
 //nav
+
+.navigation {
+
+  &__menu {
+    list-style-type: none;
+    display: flex;
+    padding-top: 24px;
+  }
+
+  &__menu-item {
+    margin-right: 52px;
+
+    &:first-of-type {
+      margin-right: 68px;
+    }
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    font-weight: $font-weight-extrabold;
+    font-size: 30px;
+    line-height: 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $black;
+    padding: 8px 0;
+
+    &:hover {
+      color: lighten($black, 15%);
+    }
+  }
+}
