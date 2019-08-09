@@ -1,14 +1,13 @@
 class Lightbox {
   constructor() {
     this.lightbox = document.querySelector('.lightbox'),
-    this.lightboxWrapper = document.querySelector('.lightbox__image-wrapper'),
     this.lightboxImage = document.querySelector('.lightbox__image'),
     this.overlay = document.querySelector('.lightbox__overlay'),
     this.closeButton = document.querySelector('.lightbox__close'),
     this.allImages = document.querySelectorAll('.triggerLightbox');
 
-    this.overlay.addEventListener('click', evt => this.hideLightbox());
-    this.closeButton.addEventListener('click', evt => this.hideLightbox());
+    this.overlay.addEventListener('click', () => this.hideLightbox());
+    this.closeButton.addEventListener('click', () => this.hideLightbox());
   }
 
   addListenerToImages() {
