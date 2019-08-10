@@ -17,6 +17,10 @@ body {
   font-size: 18px;
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
+
+  &.no-scroll {
+    overflow: hidden;
+  }
 }
 
 img {

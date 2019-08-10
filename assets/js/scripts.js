@@ -23,10 +23,12 @@ class Lightbox {
 
   showLightbox() {
     this.lightbox.classList.add('visible');
+    document.querySelector('body').classList.add('no-scroll');
   }
 
   hideLightbox() {
     this.lightbox.classList.remove('visible');
+    document.querySelector('body').classList.remove('no-scroll');
   }
 
   addEscKeyListener() {
