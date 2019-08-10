@@ -10,6 +10,7 @@
 
   &__menu-item {
     margin-right: 52px;
+    position: relative;
 
     &:first-of-type {
       margin-right: 68px;
@@ -31,7 +32,41 @@
     padding: 8px 0;
 
     &:hover {
-      color: lighten($black, 15%);
+      color: lighten($black, 35%);
+    }
+  }
+}
+
+.submenu {
+  position: absolute;
+  left: calc(50% - 85px);
+  display: none;
+  flex-flow: column nowrap;
+  width: 170px;
+  padding: 10px 0;
+  background-color: $submenu-background;
+  list-style-type: none;
+  border-radius: 7px;
+  box-shadow: 0px 6px 10px 3px rgba(0,0,0,0.2);
+
+  .active & {
+    display: flex;
+  }
+
+  &__link {
+    font-weight: $font-weight-bold;
+    font-size: 19px;
+    line-height: 19px;
+    text-decoration: none;
+    color: $black;
+    padding: 11px;
+    display: inline-block;
+    width: 100%;
+    text-transform: uppercase;
+    text-align: center;
+
+    &:hover {
+      color: lighten($black, 35%);
     }
   }
 }

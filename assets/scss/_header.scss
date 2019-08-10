@@ -8,6 +8,10 @@
   height: 760px;
   margin-bottom: 83px;
 
+  @include breakpoint($large) {
+    background-size: cover;
+  }
+
   &__upper {
     margin-bottom: 186px;
     padding: 62px 102px 0 113px;

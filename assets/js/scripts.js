@@ -42,3 +42,73 @@ let lightbox = new Lightbox();
 
 lightbox.addListenerToImages();
 lightbox.addEscKeyListener();
+
+// always keep the year fresh...
+class Dater {
+  constructor() {
+    this.currentDate = new Date();
+    this.currentYear = this.currentDate.getFullYear();
+  }
+
+  get year() {
+    return this.currentYear;
+  }
+
+  updateYear(year) {
+    document.querySelector('[data-js="footer-date"]').innerHTML = year;
+  }
+}
+
+let date = new Dater();
+date.updateYear(date.year);
+
+
+// Navigation
+class Navigation {
+  constructor() {
+    this.navLinks = document.querySelectorAll('.navigation__menu-item');
+  }
+
+  addListenerToMenu() {
+    document.addEventListener('click', evt => this.hideSubmenu(evt) );
+    for (let i = 0; i < this.navLinks.length; i++) {
+      this.navLinks[i].addEventListener('click', evt => this.manipulateDropdown(evt));
+    }
+  }
+
+  manipulateDropdown(evt) {
+    evt.preventDefault();
+    let targetParent = evt.target.parentElement;
+    this.removeActiveFromCurrent(targetParent);
+
+    evt.target.parentElement.classList.toggle('active');
+  }
+
+  hideSubmenu(evt) {
+    for (let i = 0; i < this.navLinks.length; i++) {
+      if (this.navLinks[i] === evt.target.parentElement) {
+        return true;
+      }
+    }
+
+    this.removeActiveFromCurrent();
+  }
+
+  removeActiveFromCurrent(targetParent = false) {
+    let currentActive = document.querySelector('.active');
+
+    if (targetParent) {
+      if ( currentActive && targetParent !== currentActive ) {
+        currentActive.classList.remove('active');
+        return;
+      }
+    }
+
+    if (currentActive) {
+      currentActive.classList.remove('active');
+    }
+  }
+}
+
+let navigation = new Navigation();
+navigation.addListenerToMenu();

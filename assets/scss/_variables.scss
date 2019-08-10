@@ -4,9 +4,20 @@ $black: #000000;
 $header-color: #53686c;
 $button-color: #627478;
 $light-gray: #f9f9f9;
+$submenu-background: #dfdede;
 $paragraph-color: #575756;
 $font-weight-extrabold: 800; 
 $font-weight-bold: 700;
 $font-weight-semibold: 600;
 $font-weight-normal: 400;
 $font-weight-light: 300;
+
+$medium: 640px;
+$desktop: 1024px;
+$large: 1367px;
+
+@mixin breakpoint($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
